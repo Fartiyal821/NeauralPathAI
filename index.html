@@ -11,14 +11,14 @@
     <meta name="keywords" content="Machine Learning importance, AI technology, Neural Networks, Computer Vision Lab, Gemini AI insights, Artificial Intelligence future, ML applications 2024" />
     <meta name="author" content="NeuralPath AI" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://yourusername.github.io/neuralpath-ai/" />
+    <link rel="canonical" href="https://fartiyal821.github.io/NeauralPathAI/" />
     
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="VERIFY_WITH_SEARCH_CONSOLE_HERE" />
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourusername.github.io/neuralpath-ai/" />
+    <meta property="og:url" content="https://fartiyal821.github.io/NeauralPathAI/" />
     <meta property="og:title" content="NeuralPath AI | Leading the Machine Learning Revolution" />
     <meta property="og:description" content="Explore the transformative power of AI and ML with our interactive Vision Lab and Gemini-powered insight engine." />
     <meta property="og:image" content="https://picsum.photos/seed/neuralpath-seo/1200/630" />
@@ -33,8 +33,8 @@
       "@type": "EducationalOrganization",
       "name": "NeuralPath AI",
       "description": "Educational platform for AI and Machine Learning insights.",
-      "url": "https://yourusername.github.io/neuralpath-ai/",
-      "logo": "https://yourusername.github.io/neuralpath-ai/logo.png"
+      "url": "https://fartiyal821.github.io/NeauralPathAI/",
+      "logo": "https://fartiyal821.github.io/NeauralPathAI/logo.png"
     }
     </script>
 
@@ -66,6 +66,20 @@
       ::-webkit-scrollbar { width: 8px; }
       ::-webkit-scrollbar-track { background: #030712; }
       ::-webkit-scrollbar-thumb { background: #312e81; border-radius: 10px; }
+      
+      #error-display {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        background: #ef4444;
+        color: white;
+        padding: 1rem;
+        border-radius: 1rem;
+        z-index: 9999;
+        font-size: 14px;
+      }
     </style>
     <script type="importmap">
     {
@@ -81,5 +95,18 @@
   </head>
   <body>
     <div id="root"></div>
+    <div id="error-display"></div>
+    
+    <script>
+      // Global error handler to help catch "Blank Screen" issues
+      window.onerror = function(message, source, lineno, colno, error) {
+        const display = document.getElementById('error-display');
+        display.style.display = 'block';
+        display.innerHTML = `<strong>System Error:</strong> ${message}<br><small>Source: ${source}:${lineno}</small>`;
+      };
+    </script>
+    
+    <!-- Explicitly load the main application script -->
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>

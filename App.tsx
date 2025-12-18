@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Explorer from './pages/Explorer';
-import About from './pages/About';
-import Vision from './pages/Vision';
+import React from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header.tsx';
+import Footer from './components/Footer.tsx';
+import Home from './pages/Home.tsx';
+import Explorer from './pages/Explorer.tsx';
+import About from './pages/About.tsx';
+import Vision from './pages/Vision.tsx';
 
 const App: React.FC = () => {
   return (

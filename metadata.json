@@ -1,0 +1,7 @@
+{
+  "name": "NeuralPath AI - The Future of Intelligence",
+  "description": "An advanced educational platform showcasing the profound impact and importance of AI and Machine Learning through interactive Gemini-powered insights and high-end visual design.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

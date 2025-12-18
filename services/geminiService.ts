@@ -2,9 +2,17 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 
 const getAIClient = () => {
-  // Safely access process.env to prevent crashes on GitHub Pages
-  const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : '';
-  return new GoogleGenAI({ apiKey: apiKey || '' });
+  // Ultra-safe check for browser environments like GitHub Pages
+  let apiKey = '';
+  try {
+    if (typeof process !== 'undefined' && process.env) {
+      apiKey = process.env.API_KEY || '';
+    }
+  } catch (e) {
+    console.warn("Environment variable access failed, falling back to empty key.");
+  }
+  
+  return new GoogleGenAI({ apiKey: apiKey });
 };
 
 export const generateAIInsights = async (topic: string): Promise<string> => {

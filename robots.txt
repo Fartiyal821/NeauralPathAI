@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourusername.github.io/neuralpath-ai/sitemap.xml
+Sitemap: https://fartiyal821.github.io/NeauralPathAI/sitemap.xml

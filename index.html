@@ -8,7 +8,7 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Discover the profound importance of AI and Machine Learning. NeuralPath AI provides deep insights, vision analysis, and educational resources on the technological revolution." />
-    <meta name="keywords" content="AI, Machine Learning, Deep Learning, Neural Networks, Computer Vision, AI Ethics, Future of Technology" />
+    <meta name="keywords" content="AI, Machine Learning, Deep Learning, Neural Networks, Computer Vision, AI Ethics, Future of Technology, AI Revenue" />
     <meta name="author" content="NeuralPath AI" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://fartiyal821.github.io/NeauralPathAI/" />
@@ -26,7 +26,7 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 
-    <!-- Structured Data -->
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -47,6 +47,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --primary: #6366f1;
+        --secondary: #a855f7;
+      }
       body {
         font-family: 'Inter', sans-serif;
         background-color: #030712;
@@ -58,8 +62,8 @@
         font-family: 'Space Grotesk', sans-serif;
       }
       .glass {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
       .gradient-text {
@@ -67,7 +71,29 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      /* Pre-loader styles to avoid blank screen */
+
+      /* Advanced Animations */
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(2deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      @keyframes pulse-glow {
+        0%, 100% { opacity: 0.3; filter: blur(80px); }
+        50% { opacity: 0.6; filter: blur(120px); }
+      }
+      .glow-blob {
+        position: fixed;
+        border-radius: 50%;
+        z-index: -1;
+        animation: pulse-glow 8s ease-in-out infinite;
+      }
+
+      /* Pre-loader styles */
       #initial-loader {
         position: fixed;
         inset: 0;
@@ -77,22 +103,28 @@
         align-items: center;
         justify-content: center;
         z-index: 9999;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      .loader-dots {
-        display: flex;
-        gap: 8px;
-      }
+      .loader-dots { display: flex; gap: 12px; }
       .dot {
-        width: 12px;
-        height: 12px;
-        background: #6366f1;
+        width: 14px;
+        height: 14px;
+        background: var(--primary);
         border-radius: 50%;
         animation: bounce 0.6s infinite alternate;
       }
-      .dot:nth-child(2) { animation-delay: 0.2s; }
-      .dot:nth-child(3) { animation-delay: 0.4s; }
-      @keyframes bounce { to { transform: translateY(-10px); opacity: 0.5; } }
+      .dot:nth-child(2) { animation-delay: 0.2s; background: var(--secondary); }
+      .dot:nth-child(3) { animation-delay: 0.4s; background: #ec4899; }
+      @keyframes bounce { to { transform: translateY(-15px); opacity: 0.4; } }
+      
+      /* Smooth transitions for content */
+      .page-transition {
+        animation: slideUp 0.6s ease-out forwards;
+      }
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
     </style>
     <script type="importmap">
     {
@@ -107,28 +139,34 @@
     </script>
   </head>
   <body>
+    <!-- Animated background decorators -->
+    <div class="glow-blob bg-indigo-600 top-[-10%] left-[-10%] w-[50%] h-[50%]"></div>
+    <div class="glow-blob bg-purple-600 bottom-[-10%] right-[-10%] w-[50%] h-[50%]" style="animation-delay: -4s;"></div>
+
     <div id="initial-loader">
       <div class="loader-dots">
         <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <p style="margin-top: 20px; color: #6366f1; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-size: 12px;">NeuralPath AI Initializing</p>
+      <p style="margin-top: 32px; color: #fff; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; font-size: 10px; opacity: 0.6;">Synchronizing Neural Pathways</p>
     </div>
 
     <div id="root"></div>
 
+    <!-- CRITICAL: Load the entry point file -->
+    <script type="module" src="index.tsx"></script>
+
     <script>
-      // Automatically hide loader once React has taken over
+      // Automatically hide loader once the page is fully ready
       window.addEventListener('load', () => {
-        // We give it a small delay to ensure React finishes initial mounting
         setTimeout(() => {
           const loader = document.getElementById('initial-loader');
           if (loader) {
             loader.style.opacity = '0';
-            setTimeout(() => loader.remove(), 500);
+            setTimeout(() => loader.remove(), 800);
           }
-        }, 1000);
+        }, 1200);
       });
     </script>
   </body>
